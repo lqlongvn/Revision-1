@@ -11,7 +11,6 @@ public class GameCanvas extends JPanel {
 
     public GameCanvas(){
         this.setSize(1024,600);
-        this.setVisible(true);
 
 //        Load image
         try {
@@ -19,8 +18,10 @@ public class GameCanvas extends JPanel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
 //        End of Load image
+        this.setVisible(true);
+    }
+
 
     @Override
     protected void paintComponent(Graphics g) {
