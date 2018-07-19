@@ -28,6 +28,6 @@ public class GameCanvas extends JPanel {
 //        super.paintComponent(g);
         g.setColor(Color.black);
         g.fillRect(0,0,1024,600);
-        g.drawImage(this.starImage,100,300,null);
+        g.drawImage(this.starImage,100,300,5,5,null);
     }
 }
