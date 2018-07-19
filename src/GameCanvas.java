@@ -12,12 +12,15 @@ public class GameCanvas extends JPanel {
     public GameCanvas(){
         this.setSize(1024,600);
         this.setVisible(true);
+
+//        Load image
         try {
             this.starImage = ImageIO.read(new File("resources/images/star.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+//        End of Load image
 
     @Override
     protected void paintComponent(Graphics g) {
