@@ -10,4 +10,10 @@ public class GameWindow extends JFrame {
         this.add(this.gameCanvas);
         this.setVisible(true);
     }
+
+    public void gameLoop (){
+        while (true){
+            this.gameCanvas.positionXStar -= 3;
+        }
+    }
 }
