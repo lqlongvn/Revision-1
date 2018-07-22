@@ -8,13 +8,15 @@ import java.io.IOException;
 public class GameCanvas extends JPanel {
 
     BufferedImage starImage;
+    public int positionXStar = 400;
+    public int positionYStar = 300;
 
     public GameCanvas(){
         this.setSize(1024,600);
 
 //        Load image
         try {
-            this.starImage = ImageIO.read(new File("resources/images/nose.png"));
+            this.starImage = ImageIO.read(new File("resources/images/star.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -26,8 +28,8 @@ public class GameCanvas extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
 //        super.paintComponent(g);
-        g.setColor(Color.cyan);
+        g.setColor(Color.black);
         g.fillRect(0,0,1024,600);
-        g.drawImage(this.starImage,512-150,0,300,300,null);
+        g.drawImage(this.starImage,this.positionXStar,this.positionYStar,5,5,null);
     }
 }
