@@ -26,24 +26,9 @@ public class GameCanvas extends JPanel {
         this.setSize(1024, 600);
 
         // load image
-        try {
-            this.starImage = ImageIO.read(new File("resources/images/star.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            this.enemyImage = ImageIO.read(new File("resources/images/circle.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            this.playerImage = ImageIO.read(new File("resources/images/circle.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        this.starImage = loadImage("resources/images/star.png");
+        this.enemyImage = loadImage("resources/images/circle.png");
+        this.playerImage = loadImage("resources/images/circle.png");
         this.backBuffered = new BufferedImage(1024, 600, BufferedImage.TYPE_4BYTE_ABGR);
         this.graphics = this.backBuffered.getGraphics();
 
@@ -63,5 +48,13 @@ public class GameCanvas extends JPanel {
         this.graphics.drawImage(this.enemyImage, this.positionXEnemy, this.positionYEnemy, 10, 10, null);
         this.graphics.drawImage(this.playerImage, this.positionXPlayer, this.positionYPlayer, null);
         this.repaint();
+    }
+    private BufferedImage loadImage(String path){
+        try {
+            return ImageIO.read(new File(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
