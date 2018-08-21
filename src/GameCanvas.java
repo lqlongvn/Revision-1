@@ -25,7 +25,6 @@ public class GameCanvas extends JPanel {
     public GameCanvas() {
         this.setSize(1024, 600);
 
-
         // load image
         try {
             this.starImage = ImageIO.read(new File("resources/images/star.png"));
@@ -53,14 +52,7 @@ public class GameCanvas extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        // lat backbuffered
         g.drawImage(this.backBuffered, 0, 0, null);
-//        g.setColor(Color.BLACK);
-//        g.fillRect(0, 0, 1024, 600);
-//
-//        g.drawImage(this.starImage, this.positionXStar, this.positionYStar, 5, 5, null);
-//        g.drawImage(this.enemyImage, this.positionXEnemy, this.positionYEnemy, 10, 10, null);
-//        g.drawImage(this.playerImage, this.positionXPlayer, this.positionYPlayer, null);
     }
 
     public void renderAll() {

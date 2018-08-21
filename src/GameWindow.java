@@ -45,7 +45,6 @@ public class GameWindow extends JFrame {
             if (currentTime - this.lastTime >= 17_000_000) {
                 this.gameCanvas.positionXStar -= 3;
                 this.gameCanvas.positionYEnemy += 2;
-//                gameCanvas.repaint();
                 this.gameCanvas.renderAll();
                 this.lastTime = currentTime;
             }
