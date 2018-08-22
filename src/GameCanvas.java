@@ -24,11 +24,7 @@ public class GameCanvas extends JPanel {
 
     public GameCanvas() {
         this.setSize(1024, 600);
-
-        // load image
-        this.starImage = loadImage("resources/images/star.png");
-        this.enemyImage = loadImage("resources/images/circle.png");
-        this.playerImage = loadImage("resources/images/circle.png");
+        this.setupCharacter();
         this.setupBackBuffered();
         this.setVisible(true);
     }
@@ -36,6 +32,12 @@ public class GameCanvas extends JPanel {
     private void setupBackBuffered() {
         this.backBuffered = new BufferedImage(1024, 600, BufferedImage.TYPE_4BYTE_ABGR);
         this.graphics = this.backBuffered.getGraphics();
+    }
+
+    private void setupCharacter(){
+        this.starImage = loadImage("resources/images/star.png");
+        this.enemyImage = loadImage("resources/images/circle.png");
+        this.playerImage = loadImage("resources/images/circle.png");
     }
 
     @Override
