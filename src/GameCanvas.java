@@ -46,13 +46,16 @@ public class GameCanvas extends JPanel {
     }
 
     public void renderAll() {
-        this.graphics.setColor(Color.BLACK);
-        this.graphics.fillRect(0, 0, 1024, 600);
-
+        this.rederBackground();
         this.graphics.drawImage(this.starImage, this.positionXStar, this.positionYStar, 5, 5, null);
         this.graphics.drawImage(this.enemyImage, this.positionXEnemy, this.positionYEnemy, 10, 10, null);
         this.graphics.drawImage(this.playerImage, this.positionXPlayer, this.positionYPlayer, null);
         this.repaint();
+    }
+
+    private void rederBackground(){
+        this.graphics.setColor(Color.BLACK);
+        this.graphics.fillRect(0, 0, 1024, 600);
     }
 
     private BufferedImage loadImage(String path) {
