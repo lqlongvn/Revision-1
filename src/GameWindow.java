@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class GameWindow extends JFrame {
 
@@ -12,7 +14,7 @@ public class GameWindow extends JFrame {
 
         this.setupGameCanvas();
 
-        this.keyboardEvent();
+        this.event();
 
         this.setVisible(true);
     }
@@ -20,6 +22,11 @@ public class GameWindow extends JFrame {
     private void setupGameCanvas(){
         this.gameCanvas = new GameCanvas();
         this.add(this.gameCanvas);
+    }
+
+    private void event(){
+        this.keyboardEvent();
+        this.windowEvent();
     }
 
     private void keyboardEvent(){
@@ -41,6 +48,15 @@ public class GameWindow extends JFrame {
 
             @Override
             public void keyReleased(KeyEvent e) {
+            }
+        });
+    }
+
+    private void windowEvent(){
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(1);
             }
         });
     }
