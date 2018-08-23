@@ -12,6 +12,17 @@ public class GameWindow extends JFrame {
 
         this.setupGameCanvas();
 
+        this.keyboardEvent();
+
+        this.setVisible(true);
+    }
+
+    private void setupGameCanvas(){
+        this.gameCanvas = new GameCanvas();
+        this.add(this.gameCanvas);
+    }
+
+    private void keyboardEvent(){
         this.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -32,13 +43,6 @@ public class GameWindow extends JFrame {
             public void keyReleased(KeyEvent e) {
             }
         });
-
-        this.setVisible(true);
-    }
-
-    private void setupGameCanvas(){
-        this.gameCanvas = new GameCanvas();
-        this.add(this.gameCanvas);
     }
 
     public void gameLoop() {
