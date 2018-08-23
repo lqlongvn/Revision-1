@@ -10,9 +10,7 @@ public class GameWindow extends JFrame {
     public GameWindow() {
         this.setSize(1024, 600); // set size window
 
-
-        this.gameCanvas = new GameCanvas();
-        this.add(this.gameCanvas);
+        this.setupGameCanvas();
 
         this.addKeyListener(new KeyListener() {
             @Override
@@ -35,8 +33,12 @@ public class GameWindow extends JFrame {
             }
         });
 
-
         this.setVisible(true);
+    }
+
+    private void setupGameCanvas(){
+        this.gameCanvas = new GameCanvas();
+        this.add(this.gameCanvas);
     }
 
     public void gameLoop() {
