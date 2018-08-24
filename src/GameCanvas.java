@@ -58,6 +58,11 @@ public class GameCanvas extends JPanel {
         this.graphics.fillRect(0, 0, 1024, 600);
     }
 
+    public void runAll(){
+        this.positionXStar -= 3;
+        this.positionYEnemy += 2;
+    }
+
     private BufferedImage loadImage(String path) {
         try {
             return ImageIO.read(new File(path));
