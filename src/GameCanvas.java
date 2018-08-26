@@ -7,15 +7,15 @@ import java.io.IOException;
 
 public class GameCanvas extends JPanel {
 
-    BufferedImage starImage;
+//    BufferedImage starImage;
     BufferedImage enemyImage;
     BufferedImage playerImage;
     BufferedImage backBuffered;
     Graphics graphics;
     Star star;
 
-    public int positionXStar = 400;
-    public int positionYStar = 300;
+//    public int positionXStar = 400;
+//    public int positionYStar = 300;
 
     public int positionXEnemy = 500;
     public int positionYEnemy = 0;
@@ -36,9 +36,19 @@ public class GameCanvas extends JPanel {
     }
 
     private void setupCharacter(){
-        this.starImage = loadImage("resources/images/star.png");
         this.enemyImage = loadImage("resources/images/circle.png");
         this.playerImage = loadImage("resources/images/circle.png");
+        this.setupStar();
+    }
+
+    private void setupStar(){
+        this.star = new Star();
+        this.star.image = loadImage("resources/images/star.png");
+        this.star.x = 1024;
+        this.star.y = 300;
+        this.star.width = 5;
+        this.star.height = 5;
+        this.star.veloityX = -3;
     }
 
     @Override
@@ -48,7 +58,8 @@ public class GameCanvas extends JPanel {
 
     public void renderAll() {
         this.rederBackground();
-        this.graphics.drawImage(this.starImage, this.positionXStar, this.positionYStar, 5, 5, null);
+        this.star.render(this.graphics);
+//        this.graphics.drawImage(this.starImage, this.positionXStar, this.positionYStar, 5, 5, null);
         this.graphics.drawImage(this.enemyImage, this.positionXEnemy, this.positionYEnemy, 10, 10, null);
         this.graphics.drawImage(this.playerImage, this.positionXPlayer, this.positionYPlayer, null);
         this.repaint();
@@ -60,7 +71,8 @@ public class GameCanvas extends JPanel {
     }
 
     public void runAll(){
-        this.positionXStar -= 3;
+        this.star.run();
+//        this.positionXStar -= 3;
         this.positionYEnemy += 2;
     }
 
