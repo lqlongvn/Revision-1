@@ -12,6 +12,7 @@ public class GameCanvas extends JPanel {
     BufferedImage playerImage;
     BufferedImage backBuffered;
     Graphics graphics;
+    Star star;
 
     public int positionXStar = 400;
     public int positionYStar = 300;
