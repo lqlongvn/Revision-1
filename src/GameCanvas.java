@@ -6,16 +6,11 @@ import java.io.File;
 import java.io.IOException;
 
 public class GameCanvas extends JPanel {
-
-//    BufferedImage starImage;
     BufferedImage enemyImage;
     BufferedImage playerImage;
     BufferedImage backBuffered;
     Graphics graphics;
     Star star;
-
-//    public int positionXStar = 400;
-//    public int positionYStar = 300;
 
     public int positionXEnemy = 500;
     public int positionYEnemy = 0;
@@ -59,7 +54,6 @@ public class GameCanvas extends JPanel {
     public void renderAll() {
         this.rederBackground();
         this.star.render(this.graphics);
-//        this.graphics.drawImage(this.starImage, this.positionXStar, this.positionYStar, 5, 5, null);
         this.graphics.drawImage(this.enemyImage, this.positionXEnemy, this.positionYEnemy, 10, 10, null);
         this.graphics.drawImage(this.playerImage, this.positionXPlayer, this.positionYPlayer, null);
         this.repaint();
@@ -72,7 +66,6 @@ public class GameCanvas extends JPanel {
 
     public void runAll(){
         this.star.run();
-//        this.positionXStar -= 3;
         this.positionYEnemy += 2;
     }
 
