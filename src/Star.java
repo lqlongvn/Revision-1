@@ -10,13 +10,14 @@ public class Star {
     public int veloityX;
     public int velocityY;
 
-    public Star(int x, int y){
+    public Star(BufferedImage image, int x, int y, int width, int height, int veloityX, int velocityY) {
+        this.image = image;
         this.x = x;
         this.y = y;
-    }
-
-    public Star(){
-
+        this.width = width;
+        this.height = height;
+        this.veloityX = veloityX;
+        this.velocityY = velocityY;
     }
 
 

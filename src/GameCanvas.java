@@ -37,13 +37,15 @@ public class GameCanvas extends JPanel {
     }
 
     private void setupStar(){
-        this.star = new Star(1024,600);
-        this.star.image = loadImage("resources/images/star.png");
-        this.star.x = 1024;
-        this.star.y = 300;
-        this.star.width = 5;
-        this.star.height = 5;
-        this.star.veloityX = -3;
+        this.star = new Star(
+                this.loadImage("resources/images/star.png"),
+                1024,
+                300,
+                5,
+                5,
+                -3,
+                0);
+
     }
 
     @Override
