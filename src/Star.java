@@ -10,6 +10,10 @@ public class Star {
     public int veloityX;
     public int velocityY;
 
+    public Star(){
+        System.out.println("Constructor");
+    }
+
     public void run() {
         this.x += this.veloityX;
         this.y += this.velocityY;
