@@ -45,15 +45,6 @@ public class GameCanvas extends JPanel {
 
     private void setupStar() {
         this.stars = new ArrayList<>();
-//        this.star = new Star(
-//                this.loadImage("resources/images/star.png"),
-//                1024,
-//                300,
-//                5,
-//                5,
-//                -3,
-//                0);
-
     }
 
     @Override
@@ -64,7 +55,6 @@ public class GameCanvas extends JPanel {
     public void renderAll() {
         this.rederBackground();
         this.stars.forEach(star -> star.render(graphics));
-//        this.star.render(this.graphics);
         this.graphics.drawImage(this.enemyImage, this.positionXEnemy, this.positionYEnemy, 10, 10, null);
         this.graphics.drawImage(this.playerImage, this.positionXPlayer, this.positionYPlayer, null);
         this.repaint();
@@ -78,7 +68,6 @@ public class GameCanvas extends JPanel {
     public void runAll() {
         this.createStar();
         this.stars.forEach(star -> star.run());
-//        this.star.run();
         this.positionYEnemy += 2;
     }
 
