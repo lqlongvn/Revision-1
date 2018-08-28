@@ -4,13 +4,20 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GameCanvas extends JPanel {
     BufferedImage enemyImage;
     BufferedImage playerImage;
     BufferedImage backBuffered;
     Graphics graphics;
-    Star star;
+
+    List<Star> stars;
+
+    private Random random = new Random();
+
 
     public int positionXEnemy = 500;
     public int positionYEnemy = 0;
@@ -30,21 +37,22 @@ public class GameCanvas extends JPanel {
         this.graphics = this.backBuffered.getGraphics();
     }
 
-    private void setupCharacter(){
+    private void setupCharacter() {
         this.enemyImage = loadImage("resources/images/circle.png");
         this.playerImage = loadImage("resources/images/circle.png");
         this.setupStar();
     }
 
-    private void setupStar(){
-        this.star = new Star(
-                this.loadImage("resources/images/star.png"),
-                1024,
-                300,
-                5,
-                5,
-                -3,
-                0);
+    private void setupStar() {
+        this.stars = new ArrayList<>();
+//        this.star = new Star(
+//                this.loadImage("resources/images/star.png"),
+//                1024,
+//                300,
+//                5,
+//                5,
+//                -3,
+//                0);
 
     }
 
@@ -55,20 +63,37 @@ public class GameCanvas extends JPanel {
 
     public void renderAll() {
         this.rederBackground();
-        this.star.render(this.graphics);
+        this.stars.forEach(star -> star.render(graphics));
+//        this.star.render(this.graphics);
         this.graphics.drawImage(this.enemyImage, this.positionXEnemy, this.positionYEnemy, 10, 10, null);
         this.graphics.drawImage(this.playerImage, this.positionXPlayer, this.positionYPlayer, null);
         this.repaint();
     }
 
-    private void rederBackground(){
+    private void rederBackground() {
         this.graphics.setColor(Color.BLACK);
         this.graphics.fillRect(0, 0, 1024, 600);
     }
 
-    public void runAll(){
-        this.star.run();
+    public void runAll() {
+        this.createStar();
+        this.stars.forEach(star -> star.run());
+//        this.star.run();
         this.positionYEnemy += 2;
+    }
+
+    private void createStar() {
+        Star star = new Star(
+                this.loadImage("resources/images/star.png"),
+                1024,
+                this.random.nextInt(600),
+                5,
+                5,
+                -(this.random.nextInt(3) + 1),
+                0
+        );
+        this.stars.add(star);
+
     }
 
     private BufferedImage loadImage(String path) {
