@@ -18,6 +18,8 @@ public class GameCanvas extends JPanel {
 
     private Random random = new Random();
 
+    private int countStar = 0;
+
 
     public int positionXEnemy = 500;
     public int positionYEnemy = 0;
@@ -72,16 +74,21 @@ public class GameCanvas extends JPanel {
     }
 
     private void createStar() {
-        Star star = new Star(
-                this.loadImage("resources/images/star.png"),
-                1024,
-                this.random.nextInt(600),
-                5,
-                5,
-                -(this.random.nextInt(3) + 1),
-                0
-        );
-        this.stars.add(star);
+        if (this.countStar == 30) {
+            Star star = new Star(
+                    this.loadImage("resources/images/star.png"),
+                    1024,
+                    this.random.nextInt(600),
+                    5,
+                    5,
+                    -(this.random.nextInt(3) + 1),
+                    0
+            );
+            this.stars.add(star);
+            this.countStar = 0;
+        } else {
+            this.countStar += 1;
+        }
 
     }
 
