@@ -18,7 +18,7 @@ public class GameCanvas extends JPanel {
 
 //    Background background;
 
-    public Background background = new Background();
+    private Background background = new Background();
     private Random random = new Random();
 
     private int countStar = 0;
