@@ -5,10 +5,19 @@ public class Background {
     public int y;
     public int width;
     public int height;
+    public Color color;
+
+    public Background(int x, int y, int width, int height, Color color) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
 
     public void render(Graphics graphics) {
-        graphics.setColor(Color.BLACK);
-        graphics.fillRect(0, 0, 1024, 600);
+        graphics.setColor(this.color);
+        graphics.fillRect(this.x, this.y,this.width, this.height);
     }
 
 }

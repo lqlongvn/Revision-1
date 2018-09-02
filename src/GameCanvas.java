@@ -16,9 +16,7 @@ public class GameCanvas extends JPanel {
 
     List<Star> stars;
 
-//    Background background;
-
-    private Background background = new Background();
+    private Background background = new Background(0,0,1026,600,Color.BLACK);
     private Random random = new Random();
 
     private int countStar = 0;
@@ -58,7 +56,6 @@ public class GameCanvas extends JPanel {
     }
 
     public void renderAll() {
-//        this.rederBackground();
         background.render(graphics);
         this.stars.forEach(star -> star.render(graphics));
         this.graphics.drawImage(this.enemyImage, this.positionXEnemy, this.positionYEnemy, 10, 10, null);
