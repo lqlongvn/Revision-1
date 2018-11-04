@@ -18,7 +18,7 @@ public class GameCanvas extends JPanel {
 
     private Background background = new Background(0,0,1026,600,Color.BLACK);
     private Random random = new Random();
-    public Player player = new Player (
+    private Player player = new Player (
             this.loadImage("resources/images/circle.png"),
             400,
             200,
