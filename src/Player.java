@@ -9,12 +9,12 @@ public class Player {
     public int height;
 
 
-    public Player (BufferedImage image, int x, int y, int width, int height){
-        this.image = image;
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
+    public Player () {
+        this.image = loadImage("resources/images/circle.png");
+        this.x = 400;
+        this.y = 200;
+        this.width = 5;
+        this.height = 5;
     }
 
     public void render(Graphics graphics) {
