@@ -10,7 +10,7 @@ public class Player {
 
 
     public Player () {
-        this.image = loadImage("resources/images/circle.png");
+//        this.image = loadImage("resources/images/circle.png");
         this.x = 400;
         this.y = 200;
         this.width = 5;
