@@ -10,11 +10,11 @@ public class Player {
 
 
     public Player () {
-//        this.image = loadImage("resources/images/circle.png");
-        this.x = 400;
-        this.y = 200;
-        this.width = 5;
-        this.height = 5;
+//        this.image = GameCanvas.loadImage("resources/images/circle.png");
+        this.x = 200;
+        this.y = 100;
+        this.width = 20;
+        this.height = 20;
     }
 
     public void render(Graphics graphics) {

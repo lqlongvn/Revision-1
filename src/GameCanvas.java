@@ -44,6 +44,7 @@ public class GameCanvas extends JPanel {
     private void setupCharacter() {
         this.enemyImage = loadImage("resources/images/circle.png");
         this.playerImage = loadImage("resources/images/circle.png");
+        this.player.image = loadImage("resources/images/circle.png");
         this.setupStar();
     }
 
@@ -91,7 +92,7 @@ public class GameCanvas extends JPanel {
     }
 
     
-    private BufferedImage loadImage(String path) {
+    public BufferedImage loadImage(String path) {
         try {
             return ImageIO.read(new File(path));
         } catch (IOException e) {
