@@ -26,8 +26,8 @@ public class GameCanvas extends JPanel {
     public int positionXEnemy = 500;
     public int positionYEnemy = 0;
 
-    public int positionXPlayer = 400;
-    public int positionYPlayer = 200;
+//    public int positionXPlayer = 400;
+//    public int positionYPlayer = 200;
 
     public GameCanvas() {
         this.setSize(1024, 600);
@@ -43,7 +43,7 @@ public class GameCanvas extends JPanel {
 
     private void setupCharacter() {
         this.enemyImage = loadImage("resources/images/circle.png");
-        this.playerImage = loadImage("resources/images/circle.png");
+//        this.playerImage = loadImage("resources/images/circle.png");
         this.player.image = loadImage("resources/images/circle.png");
         this.setupStar();
     }
@@ -61,7 +61,7 @@ public class GameCanvas extends JPanel {
         background.render(graphics);
         this.stars.forEach(star -> star.render(graphics));
         this.graphics.drawImage(this.enemyImage, this.positionXEnemy, this.positionYEnemy, 10, 10, null);
-        this.graphics.drawImage(this.playerImage, this.positionXPlayer, this.positionYPlayer, null);
+//        this.graphics.drawImage(this.playerImage, this.positionXPlayer, this.positionYPlayer, null);
         this.player.render(this.graphics);
         this.repaint();
     }
