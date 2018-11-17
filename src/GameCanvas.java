@@ -19,6 +19,7 @@ public class GameCanvas extends JPanel {
     private Background background = new Background(0,0,1026,600,Color.BLACK);
     private Random random = new Random();
     public Player player1 = new Player ();
+    private Enemy enemy1 = new Enemy();
 
     private int countStar = 0;
 
@@ -39,6 +40,7 @@ public class GameCanvas extends JPanel {
 
     private void setupCharacter() {
         this.enemyImage = loadImage("resources/images/circle.png");
+        this.enemy1.image = loadImage("resources/images/circle.png");
         this.player1.image = loadImage("resources/images/circle.png");
         this.setupStar();
     }
@@ -55,7 +57,10 @@ public class GameCanvas extends JPanel {
     public void renderAll() {
         background.render(graphics);
         this.stars.forEach(star -> star.render(graphics));
+
         this.graphics.drawImage(this.enemyImage, this.positionXEnemy, this.positionYEnemy, 10, 10, null);
+        this.enemy1.render(this.graphics);
+
         this.player1.render(this.graphics);
         this.repaint();
     }
@@ -64,6 +69,7 @@ public class GameCanvas extends JPanel {
     public void runAll() {
         this.createStar();
         this.stars.forEach(star -> star.run());
+        this.enemy1.y += 3;
         this.positionYEnemy += 2;
     }
 
