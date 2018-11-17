@@ -60,7 +60,8 @@ public class GameCanvas extends JPanel {
     public void runAll() {
         this.createStar();
         this.stars.forEach(star -> star.run());
-        this.enemy1.y += 3;
+//        this.enemy1.y += 3;
+        this.enemy1.run();
     }
 
     private void createStar() {
