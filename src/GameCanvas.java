@@ -15,7 +15,6 @@ public class GameCanvas extends JPanel {
     List<Star> stars;
 
     private Background background = new Background(0,0,1026,600,Color.BLACK);
-//    private Random random = new Random();
     public Player player1 = new Player ();
     private Random random1 = new Random();
     private Enemy enemy1 = new Enemy(
