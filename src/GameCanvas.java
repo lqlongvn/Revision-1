@@ -17,7 +17,16 @@ public class GameCanvas extends JPanel {
     private Background background = new Background(0,0,1026,600,Color.BLACK);
     private Random random = new Random();
     public Player player1 = new Player ();
-    private Enemy enemy1 = new Enemy();
+    private Random random1 = new Random();
+    private Enemy enemy1 = new Enemy(
+            loadImage("resources/images/circle.png"),
+            this.random1.nextInt(1024),
+            10,
+            15,
+            15,
+            2,
+            3
+             );
 
     private int countStar = 0;
 

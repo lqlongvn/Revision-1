@@ -7,22 +7,22 @@ public class Star {
     public int y;
     public int width;
     public int height;
-    public int veloityX;
+    public int velocityX;
     public int velocityY;
 
-    public Star(BufferedImage image, int x, int y, int width, int height, int veloityX, int velocityY) {
+    public Star(BufferedImage image, int x, int y, int width, int height, int velocityX, int velocityY) {
         this.image = image;
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.veloityX = veloityX;
+        this.velocityX = velocityX;
         this.velocityY = velocityY;
     }
 
 
     public void run() {
-        this.x += this.veloityX;
+        this.x += this.velocityX;
         this.y += this.velocityY;
     }
 

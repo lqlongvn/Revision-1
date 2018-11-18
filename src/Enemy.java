@@ -9,16 +9,16 @@ public class Enemy {
     public int velocityX, velocityY;
     public int width;
     public int height;
-    private Random random1 = new Random();
 
 
-    public Enemy () {
-        this.x = this.random1.nextInt(600);
-        this.y = 10;
-        this.velocityX = 2;
-        this.velocityY = 3;
-        this.width = 15;
-        this.height = 15;
+    public Enemy (BufferedImage image, int x, int y, int width, int height, int velocityX, int velocityY) {
+        this.image = image;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.velocityX = velocityX;
+        this.velocityY = velocityY;
     }
 
     public void render(Graphics graphics) {
