@@ -19,16 +19,7 @@ public class GameCanvas extends JPanel {
     private Random random1 = new Random();
     private Random randomVelocityX = new Random();
     private Random randomVelocityY = new Random();
-    private Enemy enemy1 = new Enemy(
-            loadImage("resources/images/circle.png"),
-            this.random1.nextInt(1024-15),
-            10,
-            15,
-            15,
-            this.randomVelocityX.nextInt(4)+1,
-            this.randomVelocityY.nextInt(4)
-             );
-
+    private Enemy enemy1;
     private int countStar = 0;
 
     public GameCanvas() {
@@ -69,6 +60,7 @@ public class GameCanvas extends JPanel {
     public void runAll() {
         this.createStar();
         this.stars.forEach(star -> star.run());
+        createEnemy();
         this.enemy1.run();
     }
 
@@ -90,7 +82,19 @@ public class GameCanvas extends JPanel {
         }
     }
 
-    
+    private void createEnemy(){
+        enemy1 = new Enemy(
+                loadImage("resources/images/circle.png"),
+                this.random1.nextInt(1024-15),
+                10,
+                15,
+                15,
+                this.randomVelocityX.nextInt(4)+1,
+                this.randomVelocityY.nextInt(4)
+        );
+
+    }
+
     public BufferedImage loadImage(String path) {
         try {
             return ImageIO.read(new File(path));
