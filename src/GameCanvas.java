@@ -37,6 +37,7 @@ public class GameCanvas extends JPanel {
     private void setupCharacter() {
         this.player1.image = loadImage("resources/images/circle.png");
         this.setupStar();
+        createEnemy();
     }
 
     private void setupStar() {
@@ -60,7 +61,6 @@ public class GameCanvas extends JPanel {
     public void runAll() {
         this.createStar();
         this.stars.forEach(star -> star.run());
-        createEnemy();
         this.enemy1.run();
     }
 
