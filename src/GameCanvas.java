@@ -17,11 +17,7 @@ public class GameCanvas extends JPanel {
     private Background background = new Background(0,0,1026,600,Color.BLACK);
     public Player player1 = new Player ();
     private Random random1 = new Random();
-    private Random random2 = new Random();
-    private Random randomVelocityX = new Random();
-    private Random randomVelocityY = new Random();
-    private Random randomVelocity2X = new Random();
-    private Random randomVelocity2Y = new Random();
+    
     private Enemy enemy1;
     private Enemy enemy2;
     private int countStar = 0;
@@ -95,17 +91,17 @@ public class GameCanvas extends JPanel {
                 10,
                 15,
                 15,
-                this.randomVelocityX.nextInt(4)+1,
-                this.randomVelocityY.nextInt(4)
+                this.random1.nextInt(4)+1,
+                this.random1.nextInt(4)
         );
         enemy2 = new Enemy(
                 loadImage("resources/images/circle.png"),
-                this.random2.nextInt(1024-15),
+                this.random1.nextInt(1024-15),
                 10,
                 15,
                 15,
-                this.randomVelocity2X.nextInt(4)+1,
-                this.randomVelocity2Y.nextInt(4)
+                this.random1.nextInt(4)+1,
+                this.random1.nextInt(4)
         );
     }
 
