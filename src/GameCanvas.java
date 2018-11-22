@@ -17,9 +17,13 @@ public class GameCanvas extends JPanel {
     private Background background = new Background(0,0,1026,600,Color.BLACK);
     public Player player1 = new Player ();
     private Random random1 = new Random();
+    private Random random2 = new Random();
     private Random randomVelocityX = new Random();
     private Random randomVelocityY = new Random();
+    private Random randomVelocity2X = new Random();
+    private Random randomVelocity2Y = new Random();
     private Enemy enemy1;
+    private Enemy enemy2;
     private int countStar = 0;
 
     public GameCanvas() {
@@ -38,7 +42,6 @@ public class GameCanvas extends JPanel {
         this.player1.image = loadImage("resources/images/circle.png");
         this.setupStar();
         createEnemy();
-        createEnemy();
     }
 
     private void setupStar() {
@@ -54,6 +57,7 @@ public class GameCanvas extends JPanel {
         background.render(graphics);
         this.stars.forEach(star -> star.render(graphics));
         this.enemy1.render(this.graphics);
+        this.enemy2.render(this.graphics);
         this.player1.render(this.graphics);
         this.repaint();
     }
@@ -63,6 +67,7 @@ public class GameCanvas extends JPanel {
         this.createStar();
         this.stars.forEach(star -> star.run());
         this.enemy1.run();
+        this.enemy2.run();
     }
 
     private void createStar() {
@@ -93,7 +98,15 @@ public class GameCanvas extends JPanel {
                 this.randomVelocityX.nextInt(4)+1,
                 this.randomVelocityY.nextInt(4)
         );
-
+        enemy2 = new Enemy(
+                loadImage("resources/images/circle.png"),
+                this.random2.nextInt(1024-15),
+                10,
+                15,
+                15,
+                this.randomVelocity2X.nextInt(4)+1,
+                this.randomVelocity2Y.nextInt(4)
+        );
     }
 
     public BufferedImage loadImage(String path) {
