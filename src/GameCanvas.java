@@ -13,6 +13,7 @@ public class GameCanvas extends JPanel {
     Graphics graphics;
 
     List<Star> stars;
+    List<Enemy> enemies;
 
     private Background background = new Background(0,0,1026,600,Color.BLACK);
     public Player player1 = new Player ();
@@ -21,6 +22,7 @@ public class GameCanvas extends JPanel {
     private Enemy enemy1;
     private Enemy enemy2;
     private int countStar = 0;
+    private int countEnemy = 0;
 
     public GameCanvas() {
         this.setSize(1024, 600);
@@ -37,7 +39,7 @@ public class GameCanvas extends JPanel {
     private void setupCharacter() {
         this.player1.image = loadImage("resources/images/circle.png");
         this.setupStar();
-//        createEnemy();
+        createEnemy();
     }
 
     private void setupStar() {
@@ -52,6 +54,7 @@ public class GameCanvas extends JPanel {
     public void renderAll() {
         background.render(graphics);
         this.stars.forEach(star -> star.render(graphics));
+        this.enemies.forEach(enemy -> enemy.render(this.graphics));
         this.enemy1.render(this.graphics);
         this.enemy2.render(this.graphics);
         this.player1.render(this.graphics);
@@ -62,7 +65,8 @@ public class GameCanvas extends JPanel {
     public void runAll() {
         this.createStar();
         this.stars.forEach(star -> star.run());
-        createEnemy();
+//        createEnemy();
+        this.enemies.forEach(enemy -> enemy.run());
         this.enemy1.run();
         this.enemy2.run();
     }
@@ -104,6 +108,28 @@ public class GameCanvas extends JPanel {
                 this.random1.nextInt(4)+1,
                 this.random1.nextInt(4)
         );
+        this.enemies = new ArrayList<>();
+        System.out.print("countEnemy = ");
+        System.out.print(countEnemy);
+        if (this.countEnemy == 10) {
+            Enemy enemy3 = new Enemy(
+                    loadImage("resources/images/circle.png"),
+                    this.random1.nextInt(1024-15),
+                    50,
+                    15,
+                    15,
+                    this.random1.nextInt(4)+1,
+                    this.random1.nextInt(4)
+            );
+            this.enemies.add(enemy3);
+            this.countEnemy = 0;
+            System.out.println("countEnemy = ");
+            System.out.print(countEnemy);
+        } else {
+            this.countEnemy += 1;
+        }
+
+
     }
 
     public BufferedImage loadImage(String path) {
