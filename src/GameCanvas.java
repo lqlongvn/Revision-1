@@ -65,7 +65,7 @@ public class GameCanvas extends JPanel {
     public void runAll() {
         this.createStar();
         this.stars.forEach(star -> star.run());
-//        createEnemy();
+        createEnemy();
         this.enemies.forEach(enemy -> enemy.run());
         this.enemy1.run();
         this.enemy2.run();
@@ -109,7 +109,7 @@ public class GameCanvas extends JPanel {
                 this.random1.nextInt(4)
         );
         this.enemies = new ArrayList<>();
-        System.out.print("countEnemy = ");
+        System.out.print("count1 = ");
         System.out.print(countEnemy);
         if (this.countEnemy == 10) {
             Enemy enemy3 = new Enemy(
@@ -123,8 +123,8 @@ public class GameCanvas extends JPanel {
             );
             this.enemies.add(enemy3);
             this.countEnemy = 0;
-            System.out.println("countEnemy = ");
-            System.out.print(countEnemy);
+            System.out.print("count2 = ");
+            System.out.println(countEnemy);
         } else {
             this.countEnemy += 1;
         }
