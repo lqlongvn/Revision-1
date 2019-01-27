@@ -13,16 +13,17 @@ public class GameCanvas extends JPanel {
     Graphics graphics;
 
     List<Star> stars;
-    List<Enemy> enemies;
+
+    List<EnemyTest> EnemyTestArray;
 
     private Background background = new Background(0,0,1026,600,Color.BLACK);
     public Player player1 = new Player ();
     private Random random1 = new Random();
-
+    
     private Enemy enemy1;
     private Enemy enemy2;
     private int countStar = 0;
-    private int countEnemy = 0;
+    private int countEnemyTest = 0;
 
     public GameCanvas() {
         this.setSize(1024, 600);
@@ -40,10 +41,15 @@ public class GameCanvas extends JPanel {
         this.player1.image = loadImage("resources/images/circle.png");
         this.setupStar();
         createEnemy();
+        this.setupEnemyTest();
     }
 
     private void setupStar() {
         this.stars = new ArrayList<>();
+    }
+
+    private void setupEnemyTest(){
+        this.EnemyTestArray = new ArrayList<>();
     }
 
     @Override
@@ -54,7 +60,7 @@ public class GameCanvas extends JPanel {
     public void renderAll() {
         background.render(graphics);
         this.stars.forEach(star -> star.render(graphics));
-        this.enemies.forEach(enemy -> enemy.render(this.graphics));
+        this.EnemyTestArray.forEach(enemyTest3 -> enemyTest3.render(graphics));
         this.enemy1.render(this.graphics);
         this.enemy2.render(this.graphics);
         this.player1.render(this.graphics);
@@ -64,9 +70,9 @@ public class GameCanvas extends JPanel {
 
     public void runAll() {
         this.createStar();
+        this.createEnemyTest();
         this.stars.forEach(star -> star.run());
-        createEnemy();
-        this.enemies.forEach(enemy -> enemy.run());
+        this.EnemyTestArray.forEach(enemyTest2 -> enemyTest2.run());
         this.enemy1.run();
         this.enemy2.run();
     }
@@ -89,6 +95,26 @@ public class GameCanvas extends JPanel {
         }
     }
 
+    private void createEnemyTest() {
+        if (this.countEnemyTest == 30) {
+            EnemyTest enemyTest1 = new EnemyTest(
+                    this.loadImage("resources/images/circle.png"),
+                    1024,
+                    this.random1.nextInt(600),
+                    25,
+                    25,
+                    -(this.random1.nextInt(3) + 1),
+                    0
+            );
+            this.EnemyTestArray.add(enemyTest1);
+            this.countEnemyTest = 0;
+        } else {
+            this.countEnemyTest += 1;
+        }
+    }
+
+
+
     private void createEnemy(){
         enemy1 = new Enemy(
                 loadImage("resources/images/circle.png"),
@@ -108,28 +134,6 @@ public class GameCanvas extends JPanel {
                 this.random1.nextInt(4)+1,
                 this.random1.nextInt(4)
         );
-        this.enemies = new ArrayList<>();
-        System.out.print("count1 = ");
-        System.out.print(countEnemy);
-        if (this.countEnemy == 10) {
-            Enemy enemy3 = new Enemy(
-                    loadImage("resources/images/circle.png"),
-                    this.random1.nextInt(1024-15),
-                    50,
-                    15,
-                    15,
-                    this.random1.nextInt(4)+1,
-                    this.random1.nextInt(4)
-            );
-            this.enemies.add(enemy3);
-            this.countEnemy = 0;
-            System.out.print("count2 = ");
-            System.out.println(countEnemy);
-        } else {
-            this.countEnemy += 1;
-        }
-
-
     }
 
     public BufferedImage loadImage(String path) {
