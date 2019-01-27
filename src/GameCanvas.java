@@ -99,12 +99,13 @@ public class GameCanvas extends JPanel {
         if (this.countEnemyTest == 30) {
             EnemyTest enemyTest1 = new EnemyTest(
                     this.loadImage("resources/images/circle.png"),
-                    1024,
-                    this.random1.nextInt(600),
-                    25,
-                    25,
-                    -(this.random1.nextInt(3) + 1),
-                    0
+                    this.random1.nextInt(1024-15),
+                    10,
+                    15,
+                    15,
+                    this.random1.nextInt(4)+1,
+                    this.random1.nextInt(4)
+
             );
             this.EnemyTestArray.add(enemyTest1);
             this.countEnemyTest = 0;
